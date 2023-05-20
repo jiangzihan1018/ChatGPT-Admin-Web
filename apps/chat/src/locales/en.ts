@@ -4,7 +4,7 @@ const title = process.env.NEXT_PUBLIC_TITLE;
 
 const en: LocaleType = {
   Index: {
-    Title: title || "ChatGPT Admin",
+    Title: title || "沉浸式情感聊天机器人",
     SubTitle: "Follow WeChat OA:",
     Submit: "Submit",
     Login: "Login",
