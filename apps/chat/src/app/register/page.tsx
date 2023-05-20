@@ -20,7 +20,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
 
   const [isSending, setIsSending] = useState(false);
-  const [verificationCode, setVerificationCode] = useState("");
+  // const [verificationCode, setVerificationCode] = useState("");
   const [invitationCode, setInvitationCode] = useState(
     searchParams.get("code") ?? ""
   );
@@ -35,7 +35,7 @@ export default function Register() {
   const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!email || !password || !verificationCode) {
+    if (!email || !password) {
       showToast(Locales.Index.NoneData);
       setSubmitting(false);
       return;
@@ -49,7 +49,7 @@ export default function Register() {
         body: JSON.stringify({
           email: email.trim(),
           password,
-          code: verificationCode,
+          // code: verificationCode,
           code_type: "email",
           invitation_code: invitationCode.toLowerCase() ?? "",
         }),
