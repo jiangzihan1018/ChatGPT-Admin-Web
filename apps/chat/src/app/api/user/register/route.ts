@@ -18,7 +18,7 @@ const ifVerifyCode = !!process.env.NEXT_PUBLIC_EMAIL_SERVICE;
  */
 export async function POST(req: NextRequest): Promise<Response> {
   try {
-    const { email, password, code, code_type, phone, invitation_code } =
+    const { email, password, invitation_code } =
       await req.json();
 
     const userDal = new UserDAL();
@@ -28,13 +28,13 @@ export async function POST(req: NextRequest): Promise<Response> {
     }
 
     /* Activation verification code */
-    if (ifVerifyCode) {
-      const registerCodeLogic = new RegisterCodeLogic();
-      const success = await registerCodeLogic.activateCode(email, code.trim());
+    // if (ifVerifyCode) {
+    //   const registerCodeLogic = new RegisterCodeLogic();
+    //   const success = await registerCodeLogic.activateCode(email, code.trim());
 
-      if (!success)
-        return NextResponse.json({ status: ResponseStatus.invalidCode });
-    }
+    //   if (!success)
+    //     return NextResponse.json({ status: ResponseStatus.invalidCode });
+    // }
 
     const user = new UserLogic();
     await user.register(email, password);

@@ -157,7 +157,7 @@ export default function Register() {
           />
         </div>
 
-        {ifVerifyCode && (
+        {/* {ifVerifyCode && (
           <div className={styles["login-form-input-group"]}>
             <label htmlFor="email">Verification Code</label>
             <div className={styles["verification-code-container"]}>
@@ -177,7 +177,7 @@ export default function Register() {
               </button>
             </div>
           </div>
-        )}
+        )} */}
 
         <div className={styles["login-form-input-group"]}>
           <label htmlFor="email">Invitation Code</label>
